@@ -41,15 +41,6 @@ Later, when you receive the token from APNS in AppDelegate, you call the only me
 
 ```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-	if let error = error {
-		log(level: .error, error)
-		return
-	}
-	guard let deviceToken = deviceToken else {
-		log(level: .warning, "DeviceToken not received")
-		return
-	}
-
 	let tokenParts = deviceToken.map { data -> String in
 		return String(format: "%02.2hhx", data)
 	}
