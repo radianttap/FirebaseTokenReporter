@@ -39,7 +39,7 @@ private lazy var firebaseTokenReporter: FirebaseTokenReporter = {
 
 Later, when you receive the token from APNS in AppDelegate, you call the only method there is:
 
-```
+```swift
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 	if let error = error {
 		log(level: .error, error)
