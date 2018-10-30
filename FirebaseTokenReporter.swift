@@ -62,7 +62,12 @@ extension FirebaseTokenReporter {
 			data, urlResponse, error in
 
 			if let error = error {
-				OperationQueue.execute(callback(nil, .urlError(error as! URLError)), onQueue: queue)
+				switch error {
+				case let error as URLError:
+					OperationQueue.execute(callback(nil, .urlError(error)), onQueue: queue)
+				default:
+					OperationQueue.execute(callback(nil, .unknownError(error)), onQueue: queue)
+				}
 				return
 			}
 

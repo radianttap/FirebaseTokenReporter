@@ -16,7 +16,7 @@ public enum APNSEnvironment {
 
 
 public enum FirebaseError: Error {
-	case unknownError
+	case unknownError(Swift.Error?)
 	case urlError(URLError)
 	case invalidResponse
 	case unexpectedResponse(HTTPURLResponse, String?)
